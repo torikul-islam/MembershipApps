@@ -208,6 +208,7 @@
     <Compile Include="Entities\Section.cs" />
     <Compile Include="Entities\Subscription.cs" />
     <Compile Include="Entities\SubscriptionProduct.cs" />
+    <Compile Include="Entities\UserSubscription.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -246,6 +247,10 @@
     <Compile Include="Migrations\201809080942047_AddsubscritionProductTable.cs" />
     <Compile Include="Migrations\201809080942047_AddsubscritionProductTable.Designer.cs">
       <DependentUpon>201809080942047_AddsubscritionProductTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809080943399_AddUserSubscriptionTable.cs" />
+    <Compile Include="Migrations\201809080943399_AddUserSubscriptionTable.Designer.cs">
+      <DependentUpon>201809080943399_AddUserSubscriptionTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -363,6 +368,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809080942047_AddsubscritionProductTable.resx">
       <DependentUpon>201809080942047_AddsubscritionProductTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809080943399_AddUserSubscriptionTable.resx">
+      <DependentUpon>201809080943399_AddUserSubscriptionTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
