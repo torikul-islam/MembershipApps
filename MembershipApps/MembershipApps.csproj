@@ -252,6 +252,10 @@
     <Compile Include="Migrations\201809080943399_AddUserSubscriptionTable.Designer.cs">
       <DependentUpon>201809080943399_AddUserSubscriptionTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809080950530_AddUsersTableProperty.cs" />
+    <Compile Include="Migrations\201809080950530_AddUsersTableProperty.Designer.cs">
+      <DependentUpon>201809080950530_AddUsersTableProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -371,6 +375,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809080943399_AddUserSubscriptionTable.resx">
       <DependentUpon>201809080943399_AddUserSubscriptionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809080950530_AddUsersTableProperty.resx">
+      <DependentUpon>201809080950530_AddUsersTableProperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
