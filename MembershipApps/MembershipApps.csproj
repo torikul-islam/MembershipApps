@@ -198,6 +198,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Entities\Item.cs" />
+    <Compile Include="Entities\ItemType.cs" />
     <Compile Include="Entities\Part.cs" />
     <Compile Include="Entities\Section.cs" />
     <Compile Include="Global.asax.cs">
@@ -214,6 +216,10 @@
     <Compile Include="Migrations\201809080920585_AddPartTable.cs" />
     <Compile Include="Migrations\201809080920585_AddPartTable.Designer.cs">
       <DependentUpon>201809080920585_AddPartTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809080925053_AddItemTable.cs" />
+    <Compile Include="Migrations\201809080925053_AddItemTable.Designer.cs">
+      <DependentUpon>201809080925053_AddItemTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -313,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809080920585_AddPartTable.resx">
       <DependentUpon>201809080920585_AddPartTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809080925053_AddItemTable.resx">
+      <DependentUpon>201809080925053_AddItemTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
