@@ -202,6 +202,8 @@
     <Compile Include="Entities\ItemType.cs" />
     <Compile Include="Entities\Part.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\ProductLinkText.cs" />
+    <Compile Include="Entities\ProductType.cs" />
     <Compile Include="Entities\Section.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -221,6 +223,10 @@
     <Compile Include="Migrations\201809080925053_AddItemTable.cs" />
     <Compile Include="Migrations\201809080925053_AddItemTable.Designer.cs">
       <DependentUpon>201809080925053_AddItemTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809080934074_AddProdyctTypeTable.cs" />
+    <Compile Include="Migrations\201809080934074_AddProdyctTypeTable.Designer.cs">
+      <DependentUpon>201809080934074_AddProdyctTypeTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -323,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809080925053_AddItemTable.resx">
       <DependentUpon>201809080925053_AddItemTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809080934074_AddProdyctTypeTable.resx">
+      <DependentUpon>201809080934074_AddProdyctTypeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
