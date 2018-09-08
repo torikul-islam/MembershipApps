@@ -202,9 +202,11 @@
     <Compile Include="Entities\ItemType.cs" />
     <Compile Include="Entities\Part.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\ProductItem.cs" />
     <Compile Include="Entities\ProductLinkText.cs" />
     <Compile Include="Entities\ProductType.cs" />
     <Compile Include="Entities\Section.cs" />
+    <Compile Include="Entities\Subscription.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -231,6 +233,14 @@
     <Compile Include="Migrations\201809080936094_AddProdyctLinkTextTable.cs" />
     <Compile Include="Migrations\201809080936094_AddProdyctLinkTextTable.Designer.cs">
       <DependentUpon>201809080936094_AddProdyctLinkTextTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809080939404_AddSubscriptionTable.cs" />
+    <Compile Include="Migrations\201809080939404_AddSubscriptionTable.Designer.cs">
+      <DependentUpon>201809080939404_AddSubscriptionTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809080940427_AddProductItemTable.cs" />
+    <Compile Include="Migrations\201809080940427_AddProductItemTable.Designer.cs">
+      <DependentUpon>201809080940427_AddProductItemTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -339,6 +349,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809080936094_AddProdyctLinkTextTable.resx">
       <DependentUpon>201809080936094_AddProdyctLinkTextTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809080939404_AddSubscriptionTable.resx">
+      <DependentUpon>201809080939404_AddSubscriptionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809080940427_AddProductItemTable.resx">
+      <DependentUpon>201809080940427_AddProductItemTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
