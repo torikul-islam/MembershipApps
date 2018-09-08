@@ -40,6 +40,7 @@ namespace MembershipApps.Models
         public DbSet<ProductLinkText> ProductLinkTexts { get; set; }
         public DbSet<Subscription> Subscriptions { get; set; }
         public DbSet<ProductItem> ProductItems { get; set; }
+        public DbSet<SubscriptionProduct> SubscriptionProducts { get; set; }
        
     }
 }
