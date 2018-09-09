@@ -49,7 +49,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Item.HTML, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Item.HTML, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Item.HTML, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Item.HTML, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -59,14 +59,6 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Item.WaitDays, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Item.WaitDays, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Item.ProductId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Item.ProductId, new SelectList(Model.Products, "Id", "Title"),"---Select---", new { @class = "form-control" } )
-                @Html.ValidationMessageFor(model => model.Item.ProductId, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -106,12 +98,12 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <input type="submit" value="Create" class="btn btn-success" />
         </div>
     </div>
 </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.Partial("_BackToListButtonPartial")
 </div>

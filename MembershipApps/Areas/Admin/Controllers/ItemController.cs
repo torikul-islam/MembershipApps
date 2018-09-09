@@ -45,9 +45,7 @@ namespace MembershipApps.Areas.Admin.Controllers
             {
                 Parts = db.Parts.ToList(),
                 Sections = db.Sections.ToList(),
-                ItemTypes = db.ItemTypes.ToList(),
-                Products = db.Products.ToList()
-
+                ItemTypes = db.ItemTypes.ToList()
             };
 
             return View(viewModel);
@@ -69,7 +67,6 @@ namespace MembershipApps.Areas.Admin.Controllers
                 Parts = db.Parts.ToList(),
                 Sections = db.Sections.ToList(),
                 ItemTypes = db.ItemTypes.ToList(),
-                Products = db.Products.ToList()
             };
             return View(viewModel);
         }
@@ -77,29 +74,34 @@ namespace MembershipApps.Areas.Admin.Controllers
         // GET: Admin/Item/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
-            if (id == null)
+            var viewModel = new ItemViewModel
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Item item = await db.Items.FindAsync(id);
-            if (item == null)
-            {
-                return HttpNotFound();
-            }
-            return View(item);
+                Parts = db.Parts.ToList(),
+                Sections = db.Sections.ToList(),
+                ItemTypes = db.ItemTypes.ToList(),
+                Item  = await db.Items.FindAsync(id)
+            };
+            return View(viewModel);
         }
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Title,Description,Url,ImageUrl,HTML,WaitDays,ProductId,ItemTypeId,SectionId,PartId,IsFree")] Item item)
+        public async Task<ActionResult> Edit( Item item)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(item).State = EntityState.Modified;
+               db.Entry(item).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(item);
+            var viewModel = new ItemViewModel
+            {
+                Parts = db.Parts.ToList(),
+                Sections = db.Sections.ToList(),
+                ItemTypes = db.ItemTypes.ToList(),
+                Item = await db.Items.FindAsync(item.Id)
+            };
+            return View(viewModel);
         }
 
         // GET: Admin/Item/Delete/5
