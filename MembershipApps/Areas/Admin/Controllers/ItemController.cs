@@ -64,7 +64,14 @@ namespace MembershipApps.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(item);
+            var viewModel = new ItemViewModel
+            {
+                Parts = db.Parts.ToList(),
+                Sections = db.Sections.ToList(),
+                ItemTypes = db.ItemTypes.ToList(),
+                Products = db.Products.ToList()
+            };
+            return View(viewModel);
         }
 
         // GET: Admin/Item/Edit/5
