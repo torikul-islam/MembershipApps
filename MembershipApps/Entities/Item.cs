@@ -33,6 +33,7 @@ namespace Memberships.Entities
             get { return HTML == null || HTML.Length < 50 ? 
                     HTML : HTML.Substring(0, 50); }
         }
+        [DisplayName("Products")]
         public int ProductId { get; set; }
         public int ItemTypeId { get; set; }
         public int SectionId { get; set; }
@@ -44,5 +45,6 @@ namespace Memberships.Entities
         public ICollection<Section> Sections { get; set; }
         [DisplayName("Parts")]
         public ICollection<Part> Parts { get; set; }
+
     }
 }

@@ -22,6 +22,5 @@ namespace Memberships.Entities
         [DisplayName("Registration Code")]
         public string RegistrationCode { get; set; }
 
-
     }
 }
