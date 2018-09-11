@@ -203,6 +203,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductTypeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SectionController.cs" />
     <Compile Include="Areas\Admin\Controllers\SubscriptionController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SubscriptionProductController.cs" />
     <Compile Include="Areas\Admin\Models\SmallButtonModel.cs" />
     <Compile Include="Areas\Admin\ProductLinkTextController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -298,6 +299,10 @@
     <Compile Include="Migrations\201809111205244_AddIdentityToProductItemSerialized1.Designer.cs">
       <DependentUpon>201809111205244_AddIdentityToProductItemSerialized1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809111910468_AddSubscriptionProductRelationToTable.cs" />
+    <Compile Include="Migrations\201809111910468_AddSubscriptionProductRelationToTable.Designer.cs">
+      <DependentUpon>201809111910468_AddSubscriptionProductRelationToTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -307,6 +312,7 @@
     <Compile Include="ViewModel\ItemViewModel.cs" />
     <Compile Include="ViewModel\ProductItemViewModel.cs" />
     <Compile Include="ViewModel\ProductViewModel.cs" />
+    <Compile Include="ViewModel\SubscriptionProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -376,6 +382,11 @@
     <Content Include="Areas\Admin\Views\ProductItem\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ProductItem\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ProductItem\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SubscriptionProduct\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SubscriptionProduct\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SubscriptionProduct\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\SubscriptionProduct\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SubscriptionProduct\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -496,6 +507,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809111205244_AddIdentityToProductItemSerialized1.resx">
       <DependentUpon>201809111205244_AddIdentityToProductItemSerialized1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809111910468_AddSubscriptionProductRelationToTable.resx">
+      <DependentUpon>201809111910468_AddSubscriptionProductRelationToTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

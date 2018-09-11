@@ -1,0 +1,35 @@
+﻿@using MembershipApps.Areas.Admin.Models
+@model MembershipApps.ViewModel.SubscriptionProductViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Subscription Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Products)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubscriptionProduct.Product.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subscriptions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubscriptionProduct.Subscription.Title)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.Partial("_EditButtonPartial", new SmallButtonModel {Id = Model.SubscriptionProduct.Id})
+    @Html.Partial("_BackToListButtonPartial")
+</p>
