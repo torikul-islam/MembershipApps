@@ -1,0 +1,34 @@
+﻿@model MembershipApps.ViewModel.ProductItemViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProductItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Products)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductItem.Product.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Items)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductItem.Item.Title)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.Partial("_EditButtonPartial", new { id = Model.ProductItem.Id }) 
+    @Html.Partial("_BackToListButtonPartial")
+</p>
