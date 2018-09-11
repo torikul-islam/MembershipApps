@@ -277,6 +277,10 @@
     <Compile Include="Migrations\201809110721543_AddRelationToProductModel.Designer.cs">
       <DependentUpon>201809110721543_AddRelationToProductModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809111144176_ChangeProductItemModel.cs" />
+    <Compile Include="Migrations\201809111144176_ChangeProductItemModel.Designer.cs">
+      <DependentUpon>201809111144176_ChangeProductItemModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -454,6 +458,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809110721543_AddRelationToProductModel.resx">
       <DependentUpon>201809110721543_AddRelationToProductModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809111144176_ChangeProductItemModel.resx">
+      <DependentUpon>201809111144176_ChangeProductItemModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
