@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -19,7 +20,14 @@ namespace Memberships.Entities
         public string Description { get; set; }
         [MaxLength(1024)]
         public string ImageUrl { get; set; }
+
+        public ProductLinkText ProductLinkText { get; set; }
+        [Required , DisplayName("Product Link Text")]
         public int ProductLinkTextId { get; set; }
+
+        public ProductType ProductType { get; set; }
+        [Required, DisplayName("Product Type")]
         public int ProductTypeId { get; set; }
+
     }
 }

@@ -4,14 +4,12 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
-
+<h2>Edit Item</h2>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>Item</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.Item.Id)
@@ -65,7 +63,7 @@
         </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Item.ItemTypeId, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Item.ItemTypes, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(model => model.Item.ItemTypeId, new SelectList(Model.ItemTypes, "Id", "Title"), "---Select---", new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Item.ItemTypeId, "", new { @class = "text-danger" })
@@ -73,7 +71,7 @@
     </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Item.SectionId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Item.Sections, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Item.SectionId, new SelectList(Model.Sections, "Id", "Title"), "---Select---", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Item.SectionId, "", new { @class = "text-danger" })
@@ -81,7 +79,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Item.PartId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Item.Parts, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Item.PartId, new SelectList(Model.Parts, "Id", "Title"), "---Select---", new { @class = "form-control"  })
                 @Html.ValidationMessageFor(model => model.Item.PartId, "", new { @class = "text-danger" })

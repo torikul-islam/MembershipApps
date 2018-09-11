@@ -198,8 +198,10 @@
     <Compile Include="Areas\Admin\Controllers\ItemController.cs" />
     <Compile Include="Areas\Admin\Controllers\ItemTypeController.cs" />
     <Compile Include="Areas\Admin\Controllers\PartController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductTypeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SectionController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SubscriptionController.cs" />
     <Compile Include="Areas\Admin\Models\SmallButtonModel.cs" />
     <Compile Include="Areas\Admin\ProductLinkTextController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -267,6 +269,14 @@
     <Compile Include="Migrations\201809091355016_AddDisplayItemProduct.Designer.cs">
       <DependentUpon>201809091355016_AddDisplayItemProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809091650220_AddProductModelRequiredField.cs" />
+    <Compile Include="Migrations\201809091650220_AddProductModelRequiredField.Designer.cs">
+      <DependentUpon>201809091650220_AddProductModelRequiredField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809110721543_AddRelationToProductModel.cs" />
+    <Compile Include="Migrations\201809110721543_AddRelationToProductModel.Designer.cs">
+      <DependentUpon>201809110721543_AddRelationToProductModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -274,6 +284,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\ItemViewModel.cs" />
+    <Compile Include="ViewModel\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -328,6 +339,16 @@
     <Content Include="Areas\Admin\Views\Item\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Item\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Item\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Subscription\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Subscription\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Subscription\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Subscription\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Subscription\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -427,6 +448,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809091355016_AddDisplayItemProduct.resx">
       <DependentUpon>201809091355016_AddDisplayItemProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809091650220_AddProductModelRequiredField.resx">
+      <DependentUpon>201809091650220_AddProductModelRequiredField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809110721543_AddRelationToProductModel.resx">
+      <DependentUpon>201809110721543_AddRelationToProductModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
