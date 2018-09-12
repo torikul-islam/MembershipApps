@@ -17,6 +17,7 @@ namespace MembershipApps.Models
 
         [DisplayName("First Name")]
         [StringLength(30, ErrorMessage = "The {0} must be at least {1} characters long."), MinLength(2)]
+        [Required]
         public string FirstName { get; set; }
 
         [Required]

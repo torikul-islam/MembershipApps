@@ -9,11 +9,13 @@ namespace Memberships.Entities
 {
     public class UserSubscription
     {
+
+        public int Id { get; set; }
+
         [Required]
-        [Key, Column(Order = 1)]
         public int SubscriptionId { get; set; }
+
         [Required]
-        [Key, Column(Order = 2)]
         [MaxLength(128)]
         public string UserId { get; set; }
         public DateTime? StartDate { get; set; }

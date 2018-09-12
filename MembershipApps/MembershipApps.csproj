@@ -220,6 +220,8 @@
     <Compile Include="Entities\Subscription.cs" />
     <Compile Include="Entities\SubscriptionProduct.cs" />
     <Compile Include="Entities\UserSubscription.cs" />
+    <Compile Include="Extensions\GenericsSelectListExtensions.cs" />
+    <Compile Include="Extensions\GetPropertyValueExtensions.cs" />
     <Compile Include="Extensions\IdentityExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -304,10 +306,16 @@
     <Compile Include="Migrations\201809111910468_AddSubscriptionProductRelationToTable.Designer.cs">
       <DependentUpon>201809111910468_AddSubscriptionProductRelationToTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809122202405_ChangerUserSubscriptionModel.cs" />
+    <Compile Include="Migrations\201809122202405_ChangerUserSubscriptionModel.Designer.cs">
+      <DependentUpon>201809122202405_ChangerUserSubscriptionModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\UserSubscriptionModel.cs" />
+    <Compile Include="Models\UserSubscriptionViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -444,6 +452,7 @@
     <Content Include="Views\Shared\_BackToListButtonPartial.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Account\Subscriptions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -521,6 +530,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809111910468_AddSubscriptionProductRelationToTable.resx">
       <DependentUpon>201809111910468_AddSubscriptionProductRelationToTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809122202405_ChangerUserSubscriptionModel.resx">
+      <DependentUpon>201809122202405_ChangerUserSubscriptionModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Net;
@@ -12,6 +13,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MembershipApps.Models;
+using Memberships.Entities;
 
 namespace MembershipApps.Controllers
 {
@@ -652,7 +654,72 @@ namespace MembershipApps.Controllers
 
             return View(model);
         }
-        
+
+
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> Subscriptions(string userId)
+        {
+            if (userId == null || userId.Equals(string.Empty))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var model = new UserSubscriptionViewModel();
+            var db = new ApplicationDbContext();
+            model.UserSubscriptionModels = await
+                (from us in db.UserSubscriptions
+                    join s in db.Subscriptions on us.SubscriptionId equals s.Id
+                    where us.UserId.Equals(userId)
+                    select new UserSubscriptionModel
+                    {
+                        Id = us.SubscriptionId,
+                        StartDate = us.StartDate,
+                        EndDate = us.EndDate,
+                        Description = s.Description,
+                        RegistrationCode = s.RegistrationCode,
+                        Title = s.Title
+                        
+                    }).ToListAsync();
+
+            ViewBag.SubscriptionId = new SelectList(db.Subscriptions, "Id","Title");
+            //ViewBag.ItemId = new SelectList(db.Items, "Id", "Title");
+
+            var ids = model.UserSubscriptionModels.Select(us => us.Id);
+
+            model.Subscriptions = await db.Subscriptions.Where(
+                s => !ids.Contains(s.Id)).ToListAsync();
+            model.DisableDropDown = model.Subscriptions.Count.Equals(0);
+            model.UserId = userId;
+            return View(model);
+
+        }
+
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> Subscriptions(UserSubscriptionViewModel model)
+        {
+            if (model == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            if (ModelState.IsValid)
+            {
+                var db = new ApplicationDbContext();
+                db.UserSubscriptions.Add(new UserSubscription()
+                {
+                    UserId = model.UserId,
+                    SubscriptionId = model.SubscriptionId,
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.MaxValue,
+                });
+                await db.SaveChangesAsync();
+            }
+
+            return RedirectToAction("Subscriptions", "Account", new { userId = model.UserId });
+        }
+
+
     }
     
 }
