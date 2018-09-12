@@ -12,6 +12,7 @@ using Memberships.Entities;
 
 namespace MembershipApps.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductTypeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

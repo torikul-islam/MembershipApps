@@ -13,6 +13,7 @@ using Memberships.Entities;
 
 namespace MembershipApps.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class SubscriptionProductController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

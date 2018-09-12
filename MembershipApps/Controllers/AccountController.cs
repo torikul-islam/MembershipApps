@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using MembershipApps.Extensions;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -490,5 +493,166 @@ namespace MembershipApps.Controllers
             }
         }
         #endregion
+
+
+        public async Task<ActionResult> Index()
+        {
+            var users = new List<UserViewModel>();
+            await users.GerUsers();
+            return View(users);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Account/Register
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> Create(UserViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    IsActive = true,
+                    Registered = DateTime.Now,
+                    EmailConfirmed = true
+
+                };
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Account");
+                }
+                AddErrors(result);
+            }
+            return View(model);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> Edit(string userId)
+        {
+            if(userId.Equals(string.Empty))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ApplicationUser user = await UserManager.FindByIdAsync(userId);
+            if(user.Equals(null))
+            {
+                return HttpNotFound();
+            }
+
+            var model = new UserViewModel()
+            {
+                FirstName = user.FirstName,
+                Email = user.Email,
+                Id = user.Id,
+                Password = user.PasswordHash
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(UserViewModel model)
+        {
+            if (model == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            if(ModelState.IsValid)
+            {
+                ApplicationUser user = await UserManager.FindByIdAsync(model.Id);
+                if (user != null)
+                {
+                    user.Email = model.Email;
+                    user.FirstName = model.FirstName;
+                    if (!user.PasswordHash.Equals(model.Password))
+                    {
+                        user.PasswordHash = UserManager.PasswordHasher
+                            .HashPassword(model.Password);
+                    }
+
+                    var result = await UserManager.UpdateAsync(user);
+                    if (result.Succeeded)
+                        return RedirectToAction("Index", "Account");
+
+                    AddErrors(result);
+                }
+            }
+
+            return View(model);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> Delete(string userId)
+        {
+            if (userId.Equals(string.Empty))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ApplicationUser user = await UserManager.FindByIdAsync(userId);
+            if (user.Equals(null))
+            {
+                return HttpNotFound();
+            }
+
+            var model = new UserViewModel()
+            {
+                FirstName = user.FirstName,
+                Email = user.Email,
+                Id = user.Id,
+                Password = "********"
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Delete(UserViewModel model)
+        {
+            if (model == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            if (ModelState.IsValid)
+            {
+
+                ApplicationUser user = await UserManager.FindByIdAsync(model.Id);
+                var result = await UserManager.DeleteAsync(user);
+                if (result.Succeeded)
+                {
+                    var db = new ApplicationDbContext();
+                    var subscriptions = db.UserSubscriptions
+                        .Where(u => u.UserId.Equals(user.Id));
+                    db.UserSubscriptions.RemoveRange(subscriptions);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index", "Account");
+                }
+
+                    AddErrors(result);
+                }
+
+            return View(model);
+        }
+        
     }
+    
 }

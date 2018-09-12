@@ -13,6 +13,7 @@ using MembershipApps.ViewModel;
 
 namespace MembershipApps.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ItemController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
