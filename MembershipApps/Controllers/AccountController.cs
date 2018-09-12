@@ -681,10 +681,9 @@ namespace MembershipApps.Controllers
                     }).ToListAsync();
 
             ViewBag.SubscriptionId = new SelectList(db.Subscriptions, "Id","Title");
-            //ViewBag.ItemId = new SelectList(db.Items, "Id", "Title");
 
             var ids = model.UserSubscriptionModels.Select(us => us.Id);
-
+             
             model.Subscriptions = await db.Subscriptions.Where(
                 s => !ids.Contains(s.Id)).ToListAsync();
             model.DisableDropDown = model.Subscriptions.Count.Equals(0);
@@ -719,7 +718,29 @@ namespace MembershipApps.Controllers
             return RedirectToAction("Subscriptions", "Account", new { userId = model.UserId });
         }
 
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> RemoveUserSubscription( string userId, int subscriptionId )
+        {
+            if (userId == null || userId.Length.Equals(0) || subscriptionId <= 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
+            if (ModelState.IsValid)
+            {
+                var db = new ApplicationDbContext();
+                var subscriptions = db.UserSubscriptions
+                    .Where(
+                        us => us.UserId == userId &&
+                        us.SubscriptionId.Equals(subscriptionId)
+                    );
+                db.UserSubscriptions.RemoveRange(subscriptions);
+                await db.SaveChangesAsync();
+            }
+
+
+            return RedirectToAction("Subscriptions", "Account", new { userId = userId });
+        }
     }
     
 }

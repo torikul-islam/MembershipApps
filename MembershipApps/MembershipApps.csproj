@@ -310,6 +310,10 @@
     <Compile Include="Migrations\201809122202405_ChangerUserSubscriptionModel.Designer.cs">
       <DependentUpon>201809122202405_ChangerUserSubscriptionModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809122311056_ChangerUserSubscriptionTable.cs" />
+    <Compile Include="Migrations\201809122311056_ChangerUserSubscriptionTable.Designer.cs">
+      <DependentUpon>201809122311056_ChangerUserSubscriptionTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -533,6 +537,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809122202405_ChangerUserSubscriptionModel.resx">
       <DependentUpon>201809122202405_ChangerUserSubscriptionModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809122311056_ChangerUserSubscriptionTable.resx">
+      <DependentUpon>201809122311056_ChangerUserSubscriptionTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
