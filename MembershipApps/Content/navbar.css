@@ -1,4 +1,7 @@
-﻿.navbar {
+﻿body {
+    font-family: 'Open Sans', sans-serif;
+}
+.navbar {
     border-bottom: .5px solid #c8c8c8;
     background-color: white;
 }
@@ -9,10 +12,17 @@
     color: #72c02c;
 }
 .navbar-nav >li > a {
-    margin-top: 25px;
+    margin-top: 13px;
     padding-top: 5px;
     max-height: 30px;
 }
 .body-content {
     margin-top: 20px;
+}
+.navbar-brand {
+    float: left;
+    height: 12px;
+    padding: 5px 10px;
+    font-size: 18px;
+    line-height: 20px;
 }
