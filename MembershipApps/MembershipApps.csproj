@@ -314,6 +314,14 @@
     <Compile Include="Migrations\201809122311056_ChangerUserSubscriptionTable.Designer.cs">
       <DependentUpon>201809122311056_ChangerUserSubscriptionTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809261057508_ModifyUserSubscriptionTable.cs" />
+    <Compile Include="Migrations\201809261057508_ModifyUserSubscriptionTable.Designer.cs">
+      <DependentUpon>201809261057508_ModifyUserSubscriptionTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809261100384_ModifyUserSubscriptionTable1.cs" />
+    <Compile Include="Migrations\201809261100384_ModifyUserSubscriptionTable1.Designer.cs">
+      <DependentUpon>201809261100384_ModifyUserSubscriptionTable1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -329,10 +337,17 @@
     <Compile Include="ViewModel\SubscriptionProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\MembershipAppsDb.mdf" />
+    <Content Include="App_Data\MembershipAppsDb_log.ldf">
+      <DependentUpon>MembershipAppsDb.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Logos\membership-icon-large.png" />
+    <Content Include="Content\Logos\membership-icon-small.png" />
+    <Content Include="Content\navbar.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -458,9 +473,7 @@
     <Content Include="Views\Account\Delete.cshtml" />
     <Content Include="Views\Account\Subscriptions.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -540,6 +553,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809122311056_ChangerUserSubscriptionTable.resx">
       <DependentUpon>201809122311056_ChangerUserSubscriptionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809261057508_ModifyUserSubscriptionTable.resx">
+      <DependentUpon>201809261057508_ModifyUserSubscriptionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809261100384_ModifyUserSubscriptionTable1.resx">
+      <DependentUpon>201809261100384_ModifyUserSubscriptionTable1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

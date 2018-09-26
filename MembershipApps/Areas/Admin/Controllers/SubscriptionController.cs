@@ -47,7 +47,7 @@ namespace MembershipApps.Areas.Admin.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Title,Description,RegistrationCode")] Subscription subscription)
+        public async Task<ActionResult> Create(Subscription subscription)
         {
             if (ModelState.IsValid)
             {
@@ -76,7 +76,7 @@ namespace MembershipApps.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Title,Description,RegistrationCode")] Subscription subscription)
+        public async Task<ActionResult> Edit(Subscription subscription)
         {
             if (ModelState.IsValid)
             {
