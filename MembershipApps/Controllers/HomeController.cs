@@ -1,16 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using MembershipApps.Extensions;
+using MembershipApps.Models;
+using Microsoft.AspNet.Identity;
+
 
 namespace MembershipApps.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View();
+            var useid = Request.IsAuthenticated ? HttpContext.User.Identity.GetUserId() : null;
+            var thumbnails = await new List<ThumbnailModel>().GetProductThumbnailAsync(useid);
+            var count = thumbnails.Count() / 4;
+            var model = new List<ThumbnailAreaModel>();
+            for (int i = 0; i <= count; i++)
+            {
+                model.Add(new ThumbnailAreaModel
+                {
+                    Title = i.Equals(0) ? "My Content" : string.Empty,
+                    Thumbnails = thumbnails.Skip(i *4).Take(4)
+                });
+            }
+            
+            return View(model);
+            
         }
 
         public ActionResult About()

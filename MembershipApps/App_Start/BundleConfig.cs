@@ -30,7 +30,8 @@ namespace MembershipApps
                 "~/Scripts/AdminMenu.js"));
 
             bundles.Add(new StyleBundle("~/Content/MembershipApps").Include(
-                "~/Content/navbar.css"));
+                "~/Content/navbar.css",
+                "~/Content/thumbnails.css"));
 
         }
     }
