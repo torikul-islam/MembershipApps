@@ -29,9 +29,15 @@ namespace MembershipApps
             bundles.Add(new ScriptBundle("~/bundles/Admin").Include(
                 "~/Scripts/AdminMenu.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/Admin").Include(
+                "~/Scripts/carret.js"));
+
             bundles.Add(new StyleBundle("~/Content/MembershipApps").Include(
                 "~/Content/navbar.css",
-                "~/Content/thumbnails.css"));
+                "~/Content/thumbnails.css",
+                "~/Content/ProductContent.css",
+                "~/Content/carret.css"
+                ));
 
         }
     }
